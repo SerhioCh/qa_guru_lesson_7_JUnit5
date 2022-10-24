@@ -1,5 +1,13 @@
 package qa.guru.data;
 
 public enum Locale {
-    de,en
+    DE("de"),
+    EN("en");
+    private final String desc;
+    Locale(String desc) {
+        this.desc = desc;
+    }
+    public String getDesc() {
+        return desc;
+    }
 }

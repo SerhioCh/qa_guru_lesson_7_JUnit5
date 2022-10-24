@@ -1,28 +1,21 @@
 package qa.guru.tests;
 
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.conditions.Text;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import org.openqa.selenium.By;
-import qa.guru.Components.AllTestData;
 import qa.guru.data.Locale;
 
 import java.util.List;
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
-import static org.openqa.selenium.By.xpath;
 
-public class WebTest extends AllTestData {
+public class WebTest extends BeseTest {
 
     @DisplayName("Проверка валидационных алертов")
     @Test
@@ -63,7 +56,7 @@ public class WebTest extends AllTestData {
                         "I forgot my password\n" +
                         "\n" +
                         "Sign in\n" +
-                        "Sign in with Single Sign On"), Locale.en),
+                        "Sign in with Single Sign On"), Locale.EN.getDesc()),
                 Arguments.of(List.of("Anmelden\n" +
                         "Anmelden mit Google\n" +
                         "oder verwenden Sie Ihre E-Mail, um sich anzumelden:\n" +
@@ -72,7 +65,7 @@ public class WebTest extends AllTestData {
                         "\n" +
                         "Passwort vergessen?\n" +
                         "Anmelden\n" +
-                        "Anmeldung mit SSO"), Locale.de)
+                        "Anmeldung mit SSO"), Locale.DE.getDesc())
         );
     }
     @MethodSource("selenideSiteButtonsTextDataProvider")

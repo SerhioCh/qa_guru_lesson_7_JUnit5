@@ -1,9 +1,9 @@
-package qa.guru.Components;
+package qa.guru.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 
-public class AllTestData {
+public class BeseTest {
 
     @BeforeAll
     static void configure() {
