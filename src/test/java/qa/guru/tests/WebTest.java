@@ -70,19 +70,19 @@ public class WebTest extends BeseTest {
     }
     @MethodSource("selenideSiteButtonsTextDataProvider")
     @ParameterizedTest(name = "Проверка отображения названия текста для локали: {1}")
-        void fillFormMiro(List<String> buttonsTexts, Locale locale) {
+        void fillFormMiro(List<String> buttonsTexts, String locale) {
             open("https://miro.com/login/");
             $(By.xpath("//div[@id='language-switcher']")).click();
-            $(By.xpath("//a[@data-locale="+"'"+locale.name()+"'"+"]")).click();
+           $(By.xpath("//a[@data-locale="+"'"+locale+"'"+"]")).click();
 
             $$(By.xpath("//div[@class='signup__container']")).shouldHave(CollectionCondition.texts(buttonsTexts));
         }
     @EnumSource(Locale.class)
     @ParameterizedTest
-    void checkLocaleTest(Locale locale) {
+    void checkLocaleTest(String locale) {
         open("https://miro.com/login/");
         $(By.xpath("//div[@id='language-switcher']")).click();
-        $$(By.xpath("//div[@class='Box--803j5x PopupListWrapper--1eu53ul hOvqT hEPoEE']")).find(text(locale.name())).shouldBe(visible);
+        $$(By.xpath("//div[@class='Box--803j5x PopupListWrapper--1eu53ul hOvqT hEPoEE']")).find(text(locale)).shouldBe(visible);
 
     }
     @Disabled
